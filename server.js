@@ -13,13 +13,16 @@ const db = mysql.createConnection(
     {
         host: 'localhost',
         //your mysql username,
-        user: 'Kgcan',
+        user: 'root',
         //your mysql password
         password: 'BootcampMySQL88!',
         database: 'election'
     },
     console.log('connected to the election database.')
 );
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+});
 
 //Default response for any other request (Not Found)
 app.use((req, res) => {
